@@ -1,0 +1,91 @@
+title: CPUKiller
+author: Mohamed Fadel
+description: Offensive Security Expert
+disqus_forum_shortname: CPUKiller
+google_site_verification_content: KsJlNqCp90wltBPhbMpj8 # The 'content' tag for site verification
+google_analytics: G-0SXH4BRFBR
+
+custom:
+  certificates_code: |
+    <div class="terminal" id="terminal">
+      <div id="certificates"></div>
+    </div>
+    <script>
+      const certificates = [
+        'OSCE3', 'OSMR', 'OSED', 'OSEP', 'OSWE', 'OSWA', 'OSCP',
+        'OSWP', 'CRTL', 'CRTE', 'CRTP', 'eCRE', 'eCXD', 'eCPTXv2',
+        'eWPTXv2', 'eCPPTv2', 'eWPT', 'eMAPT', 'LCAST', 'CCNA'
+      ];
+
+      const terminalElement = document.getElementById('certificates');
+      const certificateLine = certificates.join(' | ');
+
+      function typeLine(text, index, callback) {
+        if (index < text.length) {
+          terminalElement.innerHTML += text[index++];
+          setTimeout(() => typeLine(text, index, callback), 50);
+        } else {
+          setTimeout(callback, 1500);
+        }
+      }
+
+      function startTyping() {
+        function next() {
+          terminalElement.innerHTML = '';
+          typeLine(certificateLine, 0, () => {
+            setTimeout(next, 1500);
+          });
+        }
+        next();
+      }
+
+      document.addEventListener('DOMContentLoaded', startTyping);
+    </script>
+
+
+
+#Usernames and badges
+htb_badge_no: 92866
+thm_badge_no: 191989
+show_thm_htb_badges_in_nav: false
+github_username: GPUKiller
+gitlab:
+medium:
+stackoverflow: users/11337367/cpukiller
+hacker_news:
+linkedin: cpukiller
+twitch:
+youtube:
+twitter: Mohamed_Fadel_K
+facebook:
+instagram:
+reddit:
+pinterest:
+telegram: CPUKiller
+steam:
+
+markdown: kramdown
+kramdown:
+   syntax_highlighter_opts:
+      disable : true
+exclude: [
+   /*/*/_problems/*,
+   scripts
+]
+plugins:
+   - jekyll-seo-tag
+   - jemoji
+   - jekyll-sitemap
+   - jekyll-github-metadata
+collections:
+   pages:
+      output: true
+      permalink: /:name
+   writeups:
+      output: true
+   research:
+      output: true
+   blog:
+      output: true
+   projects:
+      output: true      
